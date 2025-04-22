@@ -1,5 +1,111 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 body{
-    background: white;
+    background: linear-gradient(to bottom right, #a8e063, #56ab2f);
+    flex-direction: column;
+    margin: 20px;
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: rgb(14, 45, 94);
 }
+  
+  .controls {
+    margin-bottom: 20px;
+  }
+  
+
+input[type="number"] {
+  width: 60px;
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+h1, h2{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight:500;
+}
+
+  .deck {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  
+  .card {
+    width:  100px;
+    height: 140px;
+    border: 2px solid #333;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    font-size: 25px;
+  
+  }
+  .corner {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .top-left {
+    top: 5px;
+    left: 5px;
+  }
+  
+  .bottom-right {
+    bottom: 5px;
+    right: 5px;
+  }
+
+.draw, .sort {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+
+  .heart {
+    color: crimson;
+  }
+  
+  .spade {
+    color: black;
+  }
+  
+  .diamond {
+    color: red;
+  }
+  
+  .club {
+    color: green;
+  }
+  
+  .solution-log li {
+    margin-bottom: 10px;
+    list-style: none;
+  }
+  
+  .solution-log i {
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 10px;
+  }
