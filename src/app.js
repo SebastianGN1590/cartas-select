@@ -23,20 +23,43 @@ const generateDeck = (count) => {
 };
 
 
-let log = [];
-let deck = [];
+// let log = [];
+// let deck = [];
 
-const selectionSort = (arr) => {
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i].num > arr[j].num) {
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-        log.push(arr.slice());
+// const bubbleSort = (arr) => {
+//   let wall = arr.length - 1; 
+//   while (wall > 0) {
+//     let index = 0;
+//     while (index < wall) {
+     
+//       if (arr[index].num > arr[index + 1].num) { 
+//         [arr[index], arr[index + 1]] = [arr[index + 1], arr[index]]; 
+//         log.push(arr.slice()); 
+//       }
+//       index++;
+//     }
+//     wall--;
+//   }
+//   return arr;
+// };
+
+const selectSort = (arr) => {
+  let min = 0;
+  while (min < arr.length - 1) {
+    for (let i = min + 1; i < arr.length; i++) { // <-- corregido el límite del for
+      if (arr[min].num > arr[i].num) {
+        let aux = arr[min];
+        arr[min] = arr[i];
+        arr[i] = aux;
+        log.push(arr.slice()); // <-- se guarda una copia del paso en el log
       }
     }
+    min++;
   }
   return arr;
 };
+
+
 
 const renderCard = (card) => {
   if (!card || !card.suit || !card.suit.pinta) {
@@ -71,11 +94,12 @@ document.querySelector('#draw').addEventListener('click', () => {
 });
 
 document.querySelector('#sort').addEventListener('click', () => {
-  selectionSort(deck);
+  selectSort(deck);
   document.querySelector('.solution-log').innerHTML = log.map((step, i) => `
     <li>
       <i>Step ${i + 1}:</i>
       <div class="deck">${step.map(renderCard).join('')}</div>
     </li>
   `).join('');
+  
 });
